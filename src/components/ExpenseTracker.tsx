@@ -81,7 +81,7 @@ const ExpenseTracker = () => {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="amount">Amount ($)</Label>
+              <Label htmlFor="amount">Amount (₹)</Label>
               <Input
                 id="amount"
                 type="number"
@@ -132,7 +132,7 @@ const ExpenseTracker = () => {
       <Card className="shadow-card">
         <CardHeader>
           <CardTitle>Recent Expenses</CardTitle>
-          <CardDescription>Total: ${totalExpenses.toFixed(2)}</CardDescription>
+          <CardDescription>Total: ₹{totalExpenses.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -141,7 +141,7 @@ const ExpenseTracker = () => {
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center text-white font-semibold">
-                      ${expense.amount.toFixed(0)}
+                      ₹{expense.amount.toFixed(0)}
                     </div>
                     <div>
                       <p className="font-medium text-foreground">{expense.description}</p>

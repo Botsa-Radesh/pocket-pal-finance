@@ -81,7 +81,7 @@ const Index = () => {
                   <DollarSign className="h-4 w-4 text-primary" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-foreground">${totalBalance.toLocaleString()}</div>
+                  <div className="text-2xl font-bold text-foreground">₹{totalBalance.toLocaleString('en-IN')}</div>
                   <p className="text-xs text-success mt-1">+12.5% from last month</p>
                 </CardContent>
               </Card>
@@ -92,7 +92,7 @@ const Index = () => {
                   <TrendingUp className="h-4 w-4 text-success" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-foreground">${monthlyIncome.toLocaleString()}</div>
+                  <div className="text-2xl font-bold text-foreground">₹{monthlyIncome.toLocaleString('en-IN')}</div>
                   <p className="text-xs text-muted-foreground mt-1">This month</p>
                 </CardContent>
               </Card>
@@ -103,7 +103,7 @@ const Index = () => {
                   <Calendar className="h-4 w-4 text-destructive" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-foreground">${monthlyExpenses.toLocaleString()}</div>
+                  <div className="text-2xl font-bold text-foreground">₹{monthlyExpenses.toLocaleString('en-IN')}</div>
                   <p className="text-xs text-muted-foreground mt-1">This month</p>
                 </CardContent>
               </Card>
@@ -114,8 +114,8 @@ const Index = () => {
                   <PiggyBank className="h-4 w-4 text-accent" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-foreground">${currentSavings.toLocaleString()}</div>
-                  <p className="text-xs text-muted-foreground mt-1">of ${savingsGoal.toLocaleString()} goal</p>
+                  <div className="text-2xl font-bold text-foreground">₹{currentSavings.toLocaleString('en-IN')}</div>
+                  <p className="text-xs text-muted-foreground mt-1">of ₹{savingsGoal.toLocaleString('en-IN')} goal</p>
                   <div className="w-full bg-muted rounded-full h-2 mt-2">
                     <div 
                       className="bg-gradient-success h-2 rounded-full transition-all" 

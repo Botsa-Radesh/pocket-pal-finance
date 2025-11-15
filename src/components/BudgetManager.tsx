@@ -67,7 +67,7 @@ const BudgetManager = () => {
             <CardTitle className="text-sm font-medium">Total Budget</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-foreground">${totalBudget.toLocaleString()}</div>
+            <div className="text-2xl font-bold text-foreground">₹{totalBudget.toLocaleString('en-IN')}</div>
           </CardContent>
         </Card>
 
@@ -77,7 +77,7 @@ const BudgetManager = () => {
           </CardHeader>
           <CardContent>
             <div className="flex items-center gap-2">
-              <div className="text-2xl font-bold text-foreground">${totalSpent.toLocaleString()}</div>
+              <div className="text-2xl font-bold text-foreground">₹{totalSpent.toLocaleString('en-IN')}</div>
               <TrendingDown className="w-5 h-5 text-destructive" />
             </div>
           </CardContent>
@@ -89,7 +89,7 @@ const BudgetManager = () => {
           </CardHeader>
           <CardContent>
             <div className="flex items-center gap-2">
-              <div className="text-2xl font-bold text-success">${totalRemaining.toLocaleString()}</div>
+              <div className="text-2xl font-bold text-success">₹{totalRemaining.toLocaleString('en-IN')}</div>
               <TrendingUp className="w-5 h-5 text-success" />
             </div>
           </CardContent>
@@ -113,7 +113,7 @@ const BudgetManager = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="budget-limit">Monthly Limit ($)</Label>
+              <Label htmlFor="budget-limit">Monthly Limit (₹)</Label>
               <Input
                 id="budget-limit"
                 type="number"
@@ -147,7 +147,7 @@ const BudgetManager = () => {
                     <div>
                       <p className="font-medium text-foreground">{budget.category}</p>
                       <p className="text-sm text-muted-foreground">
-                        ${budget.spent.toFixed(2)} of ${budget.limit.toFixed(2)}
+                        ₹{budget.spent.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} of ₹{budget.limit.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                       </p>
                     </div>
                     <div className="text-right">
@@ -155,7 +155,7 @@ const BudgetManager = () => {
                         {percentage.toFixed(0)}%
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        ${remaining.toFixed(2)} left
+                        ₹{remaining.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} left
                       </p>
                     </div>
                   </div>
