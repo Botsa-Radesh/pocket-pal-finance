@@ -8,8 +8,8 @@ const Recommendations = () => {
       id: '1',
       title: 'High-Yield Savings Account',
       type: 'Savings',
-      description: 'Earn 4.5% APY on your emergency fund. FDIC insured up to $250,000.',
-      potential: '+$382/year',
+      description: 'Earn 4.5% APY on your emergency fund. FDIC insured up to ₹20 lakhs.',
+      potential: '+₹32,000/year',
       risk: 'Low',
       icon: PiggyBank,
       color: 'text-success'
@@ -19,7 +19,7 @@ const Recommendations = () => {
       title: 'Index Fund Investment',
       type: 'Investment',
       description: 'S&P 500 index fund with low fees (0.03% expense ratio). Historical 10% annual returns.',
-      potential: '+$500/year potential',
+      potential: '+₹42,000/year potential',
       risk: 'Medium',
       icon: TrendingUp,
       color: 'text-primary'
@@ -28,8 +28,8 @@ const Recommendations = () => {
       id: '3',
       title: 'Term Life Insurance',
       type: 'Insurance',
-      description: '$500,000 coverage for 20 years. Protect your family\'s financial future.',
-      potential: '$35/month',
+      description: '₹4 crore coverage for 20 years. Protect your family\'s financial future.',
+      potential: '₹2,900/month',
       risk: 'Low',
       icon: Shield,
       color: 'text-secondary'
@@ -39,7 +39,7 @@ const Recommendations = () => {
       title: 'Retirement Account (401k)',
       type: 'Retirement',
       description: 'Maximize employer match. Contribute 6% to get full 3% employer match.',
-      potential: '+$1,800/year free money',
+      potential: '+₹1,50,000/year free money',
       risk: 'Low',
       icon: Target,
       color: 'text-accent'
@@ -49,18 +49,18 @@ const Recommendations = () => {
   const spendingTips = [
     {
       category: 'Food',
-      tip: 'You spent 15% more on dining out this month. Meal prep 3x/week could save $120/month.',
-      savings: '$1,440/year'
+      tip: 'You spent 15% more on dining out this month. Meal prep 3x/week could save ₹10,000/month.',
+      savings: '₹1,20,000/year'
     },
     {
       category: 'Entertainment',
-      tip: 'Consider bundling streaming services. Save $15/month by switching to family plans.',
-      savings: '$180/year'
+      tip: 'Consider bundling streaming services. Save ₹1,250/month by switching to family plans.',
+      savings: '₹15,000/year'
     },
     {
       category: 'Transportation',
-      tip: 'Gas prices are down 8%. Fill up now and consider carpooling twice a week to save more.',
-      savings: '$240/year'
+      tip: 'Fuel prices are down 8%. Fill up now and consider carpooling twice a week to save more.',
+      savings: '₹20,000/year'
     },
   ];
 

@@ -46,10 +46,10 @@ const FeasibilityChecker = () => {
     if (feasible) {
       message = `Great news! This expense is feasible within ${months} months.`;
       details = [
-        `You can currently save $${monthlySavings.toFixed(2)}/month`,
-        `Your current savings: $${currentSavings.toFixed(2)}`,
-        `Projected savings in ${months} months: $${totalCanSave.toFixed(2)}`,
-        `Required amount: $${amount.toFixed(2)}`
+        `You can currently save ₹${monthlySavings.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/month`,
+        `Your current savings: ₹${currentSavings.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+        `Projected savings in ${months} months: ₹${totalCanSave.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+        `Required amount: ₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
       ];
       
       if (percentageOfIncome > 50) {
@@ -65,12 +65,12 @@ const FeasibilityChecker = () => {
       
       message = `This expense may be challenging within ${months} months.`;
       details = [
-        `Monthly savings capacity: $${monthlySavings.toFixed(2)}`,
-        `Projected savings in ${months} months: $${totalCanSave.toFixed(2)}`,
-        `Shortfall: $${shortfall.toFixed(2)}`,
+        `Monthly savings capacity: ₹${monthlySavings.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+        `Projected savings in ${months} months: ₹${totalCanSave.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+        `Shortfall: ₹${shortfall.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
         `You'd need ${additionalMonths} more months to save enough`
       ];
-      recommendation = `Consider: 1) Extending to ${months + additionalMonths} months, 2) Reducing the expense by $${shortfall.toFixed(2)}, or 3) Finding ways to increase income by $${(shortfall / months).toFixed(2)}/month.`;
+      recommendation = `Consider: 1) Extending to ${months + additionalMonths} months, 2) Reducing the expense by ₹${shortfall.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}, or 3) Finding ways to increase income by ₹${(shortfall / months).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/month.`;
     }
 
     setResult({ feasible, message, details, recommendation });
@@ -102,7 +102,7 @@ const FeasibilityChecker = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="expense-amount">Amount ($)</Label>
+                <Label htmlFor="expense-amount">Amount (₹)</Label>
                 <Input
                   id="expense-amount"
                   type="number"
@@ -180,7 +180,7 @@ const FeasibilityChecker = () => {
                 <CheckCircle2 className="w-5 h-5 text-success" />
                 <div>
                   <p className="font-medium text-sm">New Laptop</p>
-                  <p className="text-xs text-muted-foreground">$1,200 over 3 months</p>
+                  <p className="text-xs text-muted-foreground">₹1,00,000 over 3 months</p>
                 </div>
               </div>
               <span className="text-sm text-success font-medium">Feasible</span>
@@ -190,8 +190,8 @@ const FeasibilityChecker = () => {
               <div className="flex items-center gap-3">
                 <AlertTriangle className="w-5 h-5 text-warning" />
                 <div>
-                  <p className="font-medium text-sm">European Vacation</p>
-                  <p className="text-xs text-muted-foreground">$5,000 over 4 months</p>
+                  <p className="font-medium text-sm">International Vacation</p>
+                  <p className="text-xs text-muted-foreground">₹4,00,000 over 4 months</p>
                 </div>
               </div>
               <span className="text-sm text-warning font-medium">Challenging</span>
@@ -202,7 +202,7 @@ const FeasibilityChecker = () => {
                 <CheckCircle2 className="w-5 h-5 text-success" />
                 <div>
                   <p className="font-medium text-sm">Home Repairs</p>
-                  <p className="text-xs text-muted-foreground">$800 over 2 months</p>
+                  <p className="text-xs text-muted-foreground">₹65,000 over 2 months</p>
                 </div>
               </div>
               <span className="text-sm text-success font-medium">Feasible</span>
