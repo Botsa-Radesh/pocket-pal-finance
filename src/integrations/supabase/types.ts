@@ -141,6 +141,113 @@ export type Database = {
           },
         ]
       }
+      expert_reviews: {
+        Row: {
+          analysis_id: string
+          corrected_conditions: Json | null
+          created_at: string
+          expert_id: string
+          id: string
+          notes: string | null
+          original_conditions: Json
+          validation_status: string
+        }
+        Insert: {
+          analysis_id: string
+          corrected_conditions?: Json | null
+          created_at?: string
+          expert_id: string
+          id?: string
+          notes?: string | null
+          original_conditions?: Json
+          validation_status: string
+        }
+        Update: {
+          analysis_id?: string
+          corrected_conditions?: Json | null
+          created_at?: string
+          expert_id?: string
+          id?: string
+          notes?: string | null
+          original_conditions?: Json
+          validation_status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "expert_reviews_analysis_id_fkey"
+            columns: ["analysis_id"]
+            isOneToOne: false
+            referencedRelation: "skin_analyses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "expert_reviews_expert_id_fkey"
+            columns: ["expert_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lifestyle_profiles: {
+        Row: {
+          alcohol_frequency: string | null
+          city: string | null
+          climate_type: string | null
+          created_at: string
+          diet_type: string | null
+          exercise_frequency: string | null
+          id: string
+          sleep_hours: number | null
+          smoking: boolean | null
+          stress_level: number | null
+          sun_exposure_hours: number | null
+          updated_at: string
+          user_id: string
+          water_intake_liters: number | null
+        }
+        Insert: {
+          alcohol_frequency?: string | null
+          city?: string | null
+          climate_type?: string | null
+          created_at?: string
+          diet_type?: string | null
+          exercise_frequency?: string | null
+          id?: string
+          sleep_hours?: number | null
+          smoking?: boolean | null
+          stress_level?: number | null
+          sun_exposure_hours?: number | null
+          updated_at?: string
+          user_id: string
+          water_intake_liters?: number | null
+        }
+        Update: {
+          alcohol_frequency?: string | null
+          city?: string | null
+          climate_type?: string | null
+          created_at?: string
+          diet_type?: string | null
+          exercise_frequency?: string | null
+          id?: string
+          sleep_hours?: number | null
+          smoking?: boolean | null
+          stress_level?: number | null
+          sun_exposure_hours?: number | null
+          updated_at?: string
+          user_id?: string
+          water_intake_liters?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lifestyle_profiles_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string | null
@@ -148,6 +255,7 @@ export type Database = {
           full_name: string | null
           id: string
           monthly_income: number | null
+          role: string
           updated_at: string | null
         }
         Insert: {
@@ -156,6 +264,7 @@ export type Database = {
           full_name?: string | null
           id: string
           monthly_income?: number | null
+          role?: string
           updated_at?: string | null
         }
         Update: {
@@ -164,9 +273,123 @@ export type Database = {
           full_name?: string | null
           id?: string
           monthly_income?: number | null
+          role?: string
           updated_at?: string | null
         }
         Relationships: []
+      }
+      recommendations: {
+        Row: {
+          analysis_id: string
+          avoid_ingredients: Json
+          category: string
+          concern: string
+          created_at: string
+          formulation_type: string
+          id: string
+          priority: number
+          product_suggestions: Json
+          reasoning: string
+          suggested_ingredients: Json
+          user_id: string
+        }
+        Insert: {
+          analysis_id: string
+          avoid_ingredients?: Json
+          category: string
+          concern: string
+          created_at?: string
+          formulation_type: string
+          id?: string
+          priority?: number
+          product_suggestions?: Json
+          reasoning: string
+          suggested_ingredients?: Json
+          user_id: string
+        }
+        Update: {
+          analysis_id?: string
+          avoid_ingredients?: Json
+          category?: string
+          concern?: string
+          created_at?: string
+          formulation_type?: string
+          id?: string
+          priority?: number
+          product_suggestions?: Json
+          reasoning?: string
+          suggested_ingredients?: Json
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recommendations_analysis_id_fkey"
+            columns: ["analysis_id"]
+            isOneToOne: false
+            referencedRelation: "skin_analyses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recommendations_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      skin_analyses: {
+        Row: {
+          ai_confidence: number
+          analysis_type: string
+          conditions: Json
+          created_at: string
+          expert_notes: string | null
+          expert_reviewed: boolean
+          id: string
+          image_url: string
+          reviewed_by: string | null
+          severity_scores: Json
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          ai_confidence?: number
+          analysis_type: string
+          conditions?: Json
+          created_at?: string
+          expert_notes?: string | null
+          expert_reviewed?: boolean
+          id?: string
+          image_url: string
+          reviewed_by?: string | null
+          severity_scores?: Json
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          ai_confidence?: number
+          analysis_type?: string
+          conditions?: Json
+          created_at?: string
+          expert_notes?: string | null
+          expert_reviewed?: boolean
+          id?: string
+          image_url?: string
+          reviewed_by?: string | null
+          severity_scores?: Json
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "skin_analyses_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
